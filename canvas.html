@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html>
 <body>
-<canvas id="myCanvas" width="400" height="400" style="border: #FF69B4   4px solid;"></canvas>
-<script>function mouseDown(e){
-   this.draw=true;
-   this.ctx = this.getContext("2d");
-   this.ctx.strokeStyle='#FF6347';
-   this.ctx.lineWidth=2;
+  <script>
+function mouseDown(e){
+    this.draw=true;
+    this.ctx = this.getContext("2d");
+    this.ctx.strokeStyle='#000000';
+    this.ctx.lineWidth=2;
 
-   var o=this;
-   this.offsetX=this.offsetLeft;
-   this.offsetY=this.offsetTop;
+    var o=this;
+    this.offsetX=this.offsetLeft;
+    this.offsetY=this.offsetTop;
 
-   while(o.offsetParent){
-       o=o.offsetParent;
-       this.offsetX+=o.offsetLeft;
-       this.offsetY+=o.offsetTop;
-   }
+    while(o.offsetParent){
+    	o=o.offsetParent;
+    	this.offsetX+=o.offsetLeft;
+    	this.offsetY+=o.offsetTop;
+    }
 
-   this.ctx.beginPath();
-   this.ctx.moveTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
+    this.ctx.beginPath();
+    this.ctx.moveTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
 }
 
 function mouseMove(e){
-   if (this.draw){
-       this.ctx.lineTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
-       this.ctx.stroke();
-   }
+    if (this.draw){
+        this.ctx.lineTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
+        this.ctx.stroke();
+    }
 }
 
 function mouseUp(e){
-   this.draw=false;
+    this.draw=false;
 }
 
 function touchStart(e){
-   this.draw=true;
-   this.ctx=this.getContext("2d");
-   this.touch=e.targetTouches[0];
-   this.ctx.strokeStyle='#000000';
-   this.ctx.lineWidth=2;
+    this.draw=true;
+    this.ctx=this.getContext("2d");
+    this.touch=e.targetTouches[0];
+    this.ctx.strokeStyle='#000000';
+    this.ctx.lineWidth=2;
 
-   var o=this;
-   this.offsetX=this.offsetLeft;
-   this.offsetY=this.offsetTop;
+    var o=this;
+    this.offsetX=this.offsetLeft;
+    this.offsetY=this.offsetTop;
 
-   while(o.offsetParent){
-       o=o.offsetParent;
-       this.offsetX+=o.offsetLeft;
-       this.offsetY+=o.offsetTop;
-   }
+    while(o.offsetParent){
+    	o=o.offsetParent;
+    	this.offsetX+=o.offsetLeft;
+    	this.offsetY+=o.offsetTop;
+    }
 
-   this.ctx.beginPath();
-   this.ctx.moveTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
-   e.preventDefault();
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
+    e.preventDefault();
 }
 
 function touchMove(e){
-   this.touch=e.targetTouches[0];
-   if (this.draw){
-       this.ctx.lineTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
-       this.ctx.stroke();
-   }
-   e.preventDefault();
+    this.touch=e.targetTouches[0];
+    if (this.draw){
+        this.ctx.lineTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
+        this.ctx.stroke();
+    }
+    e.preventDefault();
 }
 
 function touchEnd(e){
-   this.draw=false;
-   e.preventDefault();
+    this.draw=false;
+    e.preventDefault();
 }
 
 function clearPad(){
-   var canvas=document.querySelector('#myCanvas');
-   var ctx=canvas.getContext("2d");
-   ctx.clearRect(0,0,canvas.width,canvas.height);
+    var canvas=document.querySelector('#myCanvas');
+    var ctx=canvas.getContext("2d");
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
 window.addEventListener('load',function(){
-   var canvas=document.querySelector('#myCanvas');
+    var canvas=document.querySelector('#myCanvas');
 
-   canvas.addEventListener('mousedown',mouseDown);
-   canvas.addEventListener('mousemove',mouseMove);
-   canvas.addEventListener('mouseup',mouseUp);
+    canvas.addEventListener('mousedown',mouseDown);
+    canvas.addEventListener('mousemove',mouseMove);
+    canvas.addEventListener('mouseup',mouseUp);
 
-   canvas.addEventListener('touchstart',touchStart);
-   canvas.addEventListener('touchmove',touchMove);
-   canvas.addEventListener('touchend',touchEnd);
+    canvas.addEventListener('touchstart',touchStart);
+    canvas.addEventListener('touchmove',touchMove);
+    canvas.addEventListener('touchend',touchEnd);
 });
 
 
