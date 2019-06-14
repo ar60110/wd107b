@@ -7,5 +7,5 @@
 教師 | 陳鍾誠
 學校 | 金門大學
 科系 | 華語文學系
-我的專案 |<a href="https://github.com/ar60110/wd107b/tree/master/homework">(myproject.md)</a> 說明
+我的專案 |<a href="https://github.com/ar60110/wd107b/blob/master/homework/myproject.md">(myproject.md)</a> 說明
 
