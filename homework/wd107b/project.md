@@ -5,23 +5,19 @@
 可連入問卷調查及製作者的通訊軟體帳號。
 使用技術:
 <div class="dropdown">
- <button class="dropbtn" onclick="myFunction()">必殺技祕笈
+ <button class="dropbtn" onclick="myFunction()">
    <i class="fa fa-caret-down"></i>
  </button>
- <div class="dropdown-content" id="myDropdown">
-   <a href="https://ar60110.github.io/wd107b/survey.html">加入足球社</a>
-   <a href="#">贊助比賽</a>
-   <a href="https://line.me/ti/p/wLWr6CluxX">聯絡資訊</a>
- </div>
+ 
 
 2.側邊欄
 功能:
 點選內容能連結至該網站，滑鼠一致側欄時，側欄會變寬，移走時則會縮小。
 使用技術:
-<body>
+
 <div class="sidebar">
 <ul>
-<li><a href="#">閃電十一人</a></li>
+<li><a href="#"></a></li>
 
 3.利用超連結插入圖片：
 功能:
