@@ -6,8 +6,6 @@
 使用技術:
 <div class="dropdown">
  <button class="dropbtn" onclick="myFunction()">
-   <i class="fa fa-caret-down"></i>
- </button>
  
 
 2.側邊欄
@@ -17,14 +15,15 @@
 
 <div class="sidebar">
 <ul>
-<li><a href="#"></a></li>
+
 
 3.利用超連結插入圖片：
 功能:
 利用語法加入圖片，並且設定圖片的長度與寬度。
 使用技術:
-	<a href="連結前往的網址"><img src="圖片網址" width="xxx" height="xxx"></a>
+<a href="連結前往的網址"><img src="圖片網址" width="xxx" height="xxx"></a>
   <img src="圖片網址">5
+
 圖片的置中方法與文字整理在頁面中間
 div style="text-align: center"
 
