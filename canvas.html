@@ -2,92 +2,68 @@
 <html>
 <body>
 <script>
-function mouseDown(e){
-    this.draw=true;
-    this.ctx = this.getContext("2d");
-    this.ctx.strokeStyle='##0066FF';
-    this.ctx.lineWidth=5;
-
-    var o=this;
-    this.offsetX=this.offsetLeft;
-    this.offsetY=this.offsetTop;
-
-    while(o.offsetParent){
-    	o=o.offsetParent;
-    	this.offsetX+=o.offsetLeft;
-    	this.offsetY+=o.offsetTop;
-    }
-
-    this.ctx.beginPath();
-    this.ctx.moveTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
-}
-
-function mouseMove(e){
-    if (this.draw){
-        this.ctx.lineTo(e.pageX-this.offsetX,e.pageY-this.offsetY);
-        this.ctx.stroke();
-    }
-}
-
-function mouseUp(e){
-    this.draw=false;
-}
-
-function touchStart(e){
-    this.draw=true;
-    this.ctx=this.getContext("2d");
-    this.touch=e.targetTouches[0];
-    this.ctx.strokeStyle='#00AA00	';
-    this.ctx.lineWidth=5;
-
-    var o=this;
-    this.offsetX=this.offsetLeft;
-    this.offsetY=this.offsetTop;
-
-    while(o.offsetParent){
-    	o=o.offsetParent;
-    	this.offsetX+=o.offsetLeft;
-    	this.offsetY+=o.offsetTop;
-    }
-
-    this.ctx.beginPath();
-    this.ctx.moveTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
-    e.preventDefault();
-}
-
-function touchMove(e){
-    this.touch=e.targetTouches[0];
-    if (this.draw){
-        this.ctx.lineTo(this.touch.pageX-this.offsetX,this.touch.pageY-this.offsetY);
-        this.ctx.stroke();
-    }
-    e.preventDefault();
-}
-
-function touchEnd(e){
-    this.draw=false;
-    e.preventDefault();
-}
-
-function clearPad(){
-    var canvas=document.querySelector('#myCanvas');
-    var ctx=canvas.getContext("2d");
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-}
-
-window.addEventListener('load',function(){
-    var canvas=document.querySelector('#myCanvas');
-
-    canvas.addEventListener('mousedown',mouseDown);
-    canvas.addEventListener('mousemove',mouseMove);
-    canvas.addEventListener('mouseup',mouseUp);
-
-    canvas.addEventListener('touchstart',touchStart);
-    canvas.addEventListener('touchmove',touchMove);
-    canvas.addEventListener('touchend',touchEnd);
+var _canvas = document.getElementById('canvas');
+var ctx = _canvas.getContext('2d');  
+$('.color input').change(function(){
+  r = $('#red').val();
+  g = $('#green').val();
+  b = $('#blue').val();
+  changeColor(r,g,b);
+  //取出input中的數值
 });
-</script>
-</body>
+function changeColor(r,g,b){
+  colors = {
+    red : r,
+    green : g,
+    blue : b
+  }
+  $.each(colors, function(_color, _value) {
+    $('#v'+_color).val(_value);
+  });
+  ctx.strokeStyle = "rgb("+r+","+g+","+b+")" ;
+  //將顏色的值寫到ctx.strokeStyle即可
+};
+var x = 0;
+var y = 0;
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  //getBoundingClientRect 取得物件完整座標資訊，包含寬高等
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top
+  };   
+  //這個function將會傳回滑鼠在 _canvas上的座標
+};
+function mouseMove(evt) {
+  var mousePos = getMousePos(_canvas, evt);
+  //透過getMousePos function 去取得滑鼠座標
+  //mousePos 是一個物件，包含x和y的值
+    </script>
+    </head>
 </html>
-
-
+  ctx.lineTo(mousePos.x, mousePos.y);
+  //利用取回的值畫線
+  ctx.stroke();
+  //畫!
+};
+canvas.addEventListener('mousedown', function(evt) {
+  var mousePos = getMousePos(_canvas, evt);
+  //從按下去就會執行第一次的座標取得
+  evt.preventDefault();
+  ctx.beginPath();
+  //建立path物件
+  ctx.moveTo(mousePos.x, mousePos.y);  
+  //每次的點用moveTo去區別開，如果用lineTo會連在一起  
+  canvas.addEventListener('mousemove', mouseMove, false);
+  //mousemove的偵聽也在按下去的同時開啟
+});
+canvas.addEventListener('mouseup', function() {
+  canvas.removeEventListener('mousemove', mouseMove, false);
+}, false);
+//如果滑鼠放開，將會停止mouseup的偵聽
+$('#save').on('click', function(){
+  var _url = _canvas.toDataURL();
+  //利用toDataURL() 把canvas轉成data:image
+  this.href = _url;
+  //再把href載入上面的Data:image
+});
