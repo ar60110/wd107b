@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <script>
+<script>
 function mouseDown(e){
     this.draw=true;
     this.ctx = this.getContext("2d");
-    this.ctx.strokeStyle='#000000';
-    this.ctx.lineWidth=2;
+    this.ctx.strokeStyle='##0066FF';
+    this.ctx.lineWidth=5;
 
     var o=this;
     this.offsetX=this.offsetLeft;
@@ -37,8 +37,8 @@ function touchStart(e){
     this.draw=true;
     this.ctx=this.getContext("2d");
     this.touch=e.targetTouches[0];
-    this.ctx.strokeStyle='#000000';
-    this.ctx.lineWidth=2;
+    this.ctx.strokeStyle='#00AA00	';
+    this.ctx.lineWidth=5;
 
     var o=this;
     this.offsetX=this.offsetLeft;
@@ -86,8 +86,6 @@ window.addEventListener('load',function(){
     canvas.addEventListener('touchmove',touchMove);
     canvas.addEventListener('touchend',touchEnd);
 });
-
-
 </script>
 </body>
 </html>
