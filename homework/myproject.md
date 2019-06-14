@@ -15,6 +15,6 @@
 
 3.有許多像選項按鈕，大多能夠複選。
 
-5.<a href=">https://ar60110.github.io/wd107b/canvas.html">繪圖板</a 功能:能夠在上面畫圖 使用技術:小繪圖板
+5.<a href="https://ar60110.github.io/wd107b/canvas.html">繪圖板</a 功能:能夠在上面畫圖 使用技術:小繪圖板
 
 var canvas = document.getElementById("myCanvas"); var ctx = canvas.getContext("2d");
