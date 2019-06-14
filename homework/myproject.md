@@ -1,17 +1,20 @@
+成品:https://ar60110.github.io/wd107b/myproject.html
 
-我的專案說明
-網站首頁：https://minlingshie.github.io/wd107b/final/1104142029.html
+網誌說明:
 
-簡易說明： 進入網頁後，可從右上角「作品區」選擇「計算機」、「嘗試點點看」或「 Node.js 」，進入不同的網頁． 若想回此網頁首頁，可點選左上角「 HOME 」
+1.下拉菜單 功能: 可連入問卷調查及製作者的通訊軟體帳號。 使用技術:
 
-1. 計算機
-連結：https://minlingshie.github.io/wd107b/final/project/01_calculator.md
+2.側邊欄 功能: 點選內容能連結至該網站，滑鼠一致側欄時，側欄會變寬，移走時則會縮小。 使用技術:
 
-2. 圖片變換
-連結：https://minlingshie.github.io/wd107b/final/project/02_changeImage.md
+3.利用超連結插入圖片： 功能: 利用語法加入圖片，並且設定圖片的長度與寬度。 使用技術: 
 
-3. 點擊顯示
-連結：https://minlingshie.github.io/wd107b/final/project/03_nodejs.md
+圖片的置中方法與文字整理在頁面中間 div style="text-align: center"
+4.<a href="https://ar60110.github.io/wd107b/survey.html">問卷調查</a> 功能: 可以選擇及填寫各種資料，但是送出後會沒有回應。 使用技術: 1.使用者可以由 type="text" 的輸入欄位進行打字輸入
 
-4.if、顯示時間
-連結：https://minlingshie.github.io/wd107b/final/project/04_home.md
+2.可以提交使用者的名字
+
+3.有許多像選項按鈕，大多能夠複選。
+
+5.<a href=">https://ar60110.github.io/wd107b/canvas.html">繪圖板</a 功能:能夠在上面畫圖 使用技術:小繪圖板
+
+var canvas = document.getElementById("myCanvas"); var ctx = canvas.getContext("2d");
