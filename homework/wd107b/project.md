@@ -21,7 +21,7 @@
 功能:
 利用語法加入圖片，並且設定圖片的長度與寬度。
 使用技術:
-<a href="連結前往的網址"><img src="圖片網址" width="xxx" height="xxx"></a>
+<a href="連結前往的網址"><img src="圖片網址" width="" height=""></a>
 
 圖片的置中方法與文字整理在頁面中間
 div style="text-align: center"
